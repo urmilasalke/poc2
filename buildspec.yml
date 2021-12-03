@@ -10,6 +10,7 @@ phases:
   pre_build:
     commands:
       - npm install
+      - npm install @fortawesome/fontawesome-svg-core
   # Now we want to actually build our React app
   build:
     commands:
