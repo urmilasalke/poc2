@@ -40,7 +40,7 @@ const Admission = () => {
       </div>
       <h5 className="h5">Grades Available!</h5>
       <ul>
-        <Link to="/preprimary">
+        <Link to="/preprimary" style={{ textDecoration: "none" }}>
           <li>Pre-primary</li>
         </Link>
 
