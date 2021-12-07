@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import "../style/aboutus.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-// import { Accordion } from 'react-bootstrap';
-// import { Card } from 'react-bootstrap';
-// import Home from './Home';
-
 const Aboutus = () => {
   const [home, setHome] = useState(false);
   const [vision, setVision] = useState(false);
@@ -71,7 +67,12 @@ const Aboutus = () => {
           guidance.
         </p>
       )}
-      <div id="vision" className="accordions" onClick={() => visionfun()}>
+      <div
+        id="vision"
+        data-testid="vision-text"
+        className="accordions"
+        onClick={() => visionfun()}
+      >
         Vision
       </div>
       {vision && (

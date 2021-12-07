@@ -6,10 +6,10 @@ describe("home", () => {
   });
 });
 
-// test("increment counter", () => {
-//   render(<Aboutus />);
-//   const btnIncrement = screen.findByLabelText("History");
-
-//   fireEvent.click(btnIncrement);
-//   expect(screen.getByTestId("home-text")).toHaveTextContent("1");
-// });
+test("check div component", () => {
+  render(<Aboutus />);
+  const homediv = screen.getByTestId("home-text");
+  fireEvent.click(homediv);
+  const visiontext = screen.getByTestId("vision-text");
+  fireEvent.click(visiontext);
+});
