@@ -5,7 +5,7 @@ const Contactus = () => {
     <>
       <div className="container py-5">
         <div className="row">
-          <div className="col-lg-6 "></div>
+          {/* <div className="col-lg-6 "></div> */}
           <div className="col-lg-6 mx-auto">
             <div className="card">
               <div className="card-body">
@@ -22,6 +22,7 @@ const Contactus = () => {
                       <input
                         type="text"
                         className="effect-1"
+                        name="firstName"
                         placeholder="First Name"
                       />
                       <span className="Focus-border"></span>
@@ -31,6 +32,7 @@ const Contactus = () => {
                         type="text"
                         className="effect-1"
                         placeholder="Last Name"
+                        name="lastName"
                       />
                       <span className="Focus-border"></span>
                     </div>
@@ -39,6 +41,7 @@ const Contactus = () => {
                     <div className="col-lg-12">
                       <input
                         type="text"
+                        name="email"
                         className="effect-1"
                         placeholder="Email Address"
                       />
@@ -50,6 +53,7 @@ const Contactus = () => {
                       <input
                         type="text"
                         className="effect-1"
+                        name="message"
                         placeholder="Your Message"
                       />
                       <span className="Focus-border"></span>

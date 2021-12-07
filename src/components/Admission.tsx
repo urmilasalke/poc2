@@ -1,30 +1,8 @@
 import React from "react";
-// import Table from "react-bootstrap/Table";
-import axios from "axios";
-import { useEffect } from "react";
-import { MainState } from "./store/AdmissionStore";
-import { useSelector, useDispatch } from "react-redux";
-import { setAdmissionGrades } from "./reducers/AdmissionReducer";
 import { Link } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import "../style/admission.css";
 const Admission = () => {
-  const grades = useSelector((state: MainState) => state.admission.value);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/`)
-      .then(({ data }) => {
-        dispatch(setAdmissionGrades(data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  console.log(grades);
-  console.log();
-  // axios.get(`http://localhost:5000/${category}`).then(()=>{}).catch(()=>{})
   return (
     <>
       <div>
@@ -43,38 +21,13 @@ const Admission = () => {
         <Link to="/preprimary" style={{ textDecoration: "none" }}>
           <li>Pre-primary</li>
         </Link>
-
-        <Link to="/primary">
+        <Link to="/primary" style={{ textDecoration: "none" }}>
           <li>Primary</li>
         </Link>
-        <Link to="/secondary">
+        <Link to="/secondary" style={{ textDecoration: "none" }}>
           <li>Secondary</li>
         </Link>
       </ul>
-      {/* <Table striped bordered hover size="sm">
-        <thead>
-          <tr>
-            <th>Grade</th>
-            <th>Fees</th>
-            <th>Seats</th>
-          </tr>
-        </thead>
-        <tbody>
-          {grades.map((grade) => (
-            <>
-              {grade.options.map((option) => (
-                <>
-                  <tr>
-                    <td>{option.fees}</td>
-                    <td>{option.grade}</td>
-                    <td>{option.seats}</td>
-                  </tr>
-                </>
-              ))}
-            </>
-          ))}
-        </tbody>
-      </Table> */}
     </>
   );
 };

@@ -10,22 +10,22 @@ const Footer = () => {
           <div className="col-sm-4"></div>
           {/* <div className="col-1">Home</div> */}
           <div className="col-sm-1">
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: "none" }}>
               <h6>Home</h6>
             </Link>
           </div>
           <div className="col-sm-1">
-            <Link to="/aboutus">
+            <Link to="/aboutus" style={{ textDecoration: "none" }}>
               <h6>About us</h6>
             </Link>
           </div>
           <div className="col-sm-1">
-            <Link to="/admission">
+            <Link to="/admission" style={{ textDecoration: "none" }}>
               <h6>Admission</h6>
             </Link>
           </div>
           <div className="col-sm-2">
-            <Link to="/contactus">
+            <Link to="/contactus" style={{ textDecoration: "none" }}>
               <h6>Contact us</h6>
             </Link>
           </div>

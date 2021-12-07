@@ -8,7 +8,8 @@
 
 .breadcrumb {
   background-color: tomato;
-  display: inline-block;
+  /* display: inline-block; */
+  width: 100%;
 }
 
 .item {

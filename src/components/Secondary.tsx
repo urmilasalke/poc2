@@ -12,9 +12,7 @@ const Secondary = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(
-        `http://reactserver-env.eba-rph7dvdy.us-east-2.elasticbeanstalk.com/getdata/secondary`
-      )
+      .get(`http://localhost:4000/getdata/secondary`)
       .then(({ data }) => {
         dispatch(setAdmissionGrades(data));
       })

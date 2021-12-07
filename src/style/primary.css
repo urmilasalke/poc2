@@ -9,6 +9,11 @@
 .container {
   margin-bottom: 30px;
 }
+.breadcrumb {
+  background-color: tomato;
+  /* display: inline-block; */
+  width: 100%;
+}
 
 .item {
   text-decoration: none;
