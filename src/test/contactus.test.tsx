@@ -1,6 +1,7 @@
 import Contactus from "../components/Contactus";
 import { render, act, fireEvent, screen } from "@testing-library/react";
-import axiosMock from "axios";
+import axios from "axios";
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 jest.mock("axios");
 describe("header", () => {
   test("renders header component", () => {
@@ -13,10 +14,12 @@ test("axios post request for reset  password then", async () => {
     firstName: "urmila",
     lastName: "salke",
     email: "urmilasalke@gmail.com",
-    message: "good",
+    message: "goodschool",
   };
 
-  axiosMock.post.mockImplementationOnce(() => Promise.resolve({ data: reset }));
+  mockedAxios.post.mockImplementationOnce(() =>
+    Promise.resolve({ data: reset })
+  );
   const { getByTestId } = render(<Contactus />);
   fireEvent.change(getByTestId("firstName"), {
     target: { value: "urmila" },
@@ -33,21 +36,57 @@ test("axios post request for reset  password then", async () => {
   await act(async () => {
     fireEvent.click(screen.getByTestId("submit", { name: "Submit" }));
   });
-  expect(axiosMock.post).toHaveBeenCalled();
+  expect(mockedAxios.post).toHaveBeenCalled();
 });
 
-test("axios post request for reset  password then", async () => {
+test("axios post request for reset  password catch", async () => {
   const reset = {
     firstName: "urmila",
     lastName: "salke",
     email: "urmilasalke@gmail.com",
-    message: "good",
+    message: "good management",
   };
 
-  axiosMock.post.mockImplementationOnce(() => Promise.reject({ data: reset }));
+  mockedAxios.post.mockImplementationOnce(() =>
+    Promise.reject({ data: reset })
+  );
   const { getByTestId } = render(<Contactus />);
+  fireEvent.change(getByTestId("firstName"), {
+    target: { value: "urmila" },
+  });
+  fireEvent.change(getByTestId("lastName"), {
+    target: { value: "salke" },
+  });
+  fireEvent.change(getByTestId("email"), {
+    target: { value: "urmilasalke@gmail.com" },
+  });
+  fireEvent.change(getByTestId("message"), {
+    target: { value: "good" },
+  });
   await act(async () => {
     fireEvent.click(screen.getByTestId("submit", { name: "Submit" }));
   });
-  expect(axiosMock.post).toHaveBeenCalled();
+  expect(mockedAxios.post).toHaveBeenCalled();
+});
+
+test("Validation", async () => {
+  const reset = {
+    firstName: "u",
+    lastName: "s",
+    email: "urmilasalke",
+    message: "go",
+  };
+  const { getByTestId } = render(<Contactus />);
+  fireEvent.change(getByTestId("firstName"), {
+    target: { value: "urmila" },
+  });
+  fireEvent.change(getByTestId("lastName"), {
+    target: { value: "salke" },
+  });
+  fireEvent.change(getByTestId("email"), {
+    target: { value: "urmilasalke@gmail.com" },
+  });
+  fireEvent.change(getByTestId("message"), {
+    target: { value: "good" },
+  });
 });

@@ -8,13 +8,19 @@ import Footer from "./components/Footer";
 import PrePrimary from "./components/PrePrimary";
 import Primary from "./components/Primary";
 import Secondary from "./components/Secondary";
+// import Profile from "./components/StudentDashbord";
+// import Registration from "./components/Registration";
+import AdmissionForm from "./components/AdmissionForm";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Aboutus = lazy(() => import("./components/Aboutus"));
 function App() {
   return (
     <Router>
       <TopHeader />
       <Header />
+      <ToastContainer />
       <div className="page">
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
@@ -25,6 +31,9 @@ function App() {
             <Route path="/primary" element={<Primary />} />
             <Route path="/secondary" element={<Secondary />} />
             <Route path="/preprimary" element={<PrePrimary />} />
+            {/* <Route path="/profile" element={<Profile />} /> */}
+            {/* <Route path="/registration" element={<Registration />} /> */}
+            <Route path="/admform" element={<AdmissionForm />} />
           </Routes>
         </Suspense>
       </div>

@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setAdmissionGrades } from "./reducers/AdmissionReducer";
 import axios from "axios";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import "../style/secondary.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 const Secondary = () => {
@@ -12,7 +14,9 @@ const Secondary = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/getdata/secondary`)
+      .get(
+        `http://react-env.eba-gxkskpht.us-east-2.elasticbeanstalk.com/getdata/secondary`
+      )
       .then(({ data }) => {
         dispatch(setAdmissionGrades(data));
       })
@@ -66,6 +70,15 @@ const Secondary = () => {
             </Table>
           </div>
           <div className="col-sm-2"></div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-2">
+            <Link to="/admform">
+              <Button variant="info">Check For Enquire</Button>{" "}
+            </Link>
+          </div>
         </div>
       </div>
     </>

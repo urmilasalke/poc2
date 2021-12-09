@@ -4,15 +4,19 @@ import { MainState } from "./store/AdmissionStore";
 import { useSelector, useDispatch } from "react-redux";
 import { setAdmissionGrades } from "./reducers/AdmissionReducer";
 import axios from "axios";
+import { Button } from "react-bootstrap";
 import { Table } from "react-bootstrap";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import { Link } from "react-router-dom";
 import "../style/primary.css";
 const Primary = () => {
   const grades = useSelector((state: MainState) => state.admission.value);
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/getdata/primary`)
+      .get(
+        `http://react-env.eba-gxkskpht.us-east-2.elasticbeanstalk.com/getdata/primary`
+      )
       .then(({ data }) => {
         dispatch(setAdmissionGrades(data));
       })
@@ -66,6 +70,15 @@ const Primary = () => {
             </Table>
           </div>
           <div className="col-sm-2"></div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-2">
+            <Link to="/admform">
+              <Button variant="info">Check For Enquire</Button>{" "}
+            </Link>
+          </div>
         </div>
       </div>
     </>

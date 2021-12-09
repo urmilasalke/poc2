@@ -9,6 +9,17 @@
   -moz-box-shadow: 10px 12px 26px 5px rgba(124, 128, 237, 0.46);
 }
 
+.error {
+  color: red;
+}
+/* .form {
+  background-color:;
+} */
+
+.bg {
+  background-color: rgb(235, 118, 128);
+}
+
 .effect-1 {
   border: 0;
   outline: none;
