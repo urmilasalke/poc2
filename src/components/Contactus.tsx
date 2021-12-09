@@ -40,12 +40,15 @@ const Contactus = () => {
     //   return;
     // }
     axios
-      .post(`http://localhost:4000/contactus/`, {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        message: message,
-      })
+      .post(
+        `http://react-env.eba-gxkskpht.us-east-2.elasticbeanstalk.com/contactus/`,
+        {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          message: message,
+        }
+      )
       .then((res) => {
         console.log(res);
         toast.success("Data Saved Successfully !!", { position: "top-center" });

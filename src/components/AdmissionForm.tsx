@@ -24,7 +24,7 @@ const AdmissionForm = () => {
     console.log(middleName);
     axios
       .post(
-        `http://react-env.eba-gxkskpht.us-east-2.elasticbeanstalk.com/getdata/primary/admform/`,
+        `http://react-env.eba-gxkskpht.us-east-2.elasticbeanstalk.com/admform/`,
         {
           firstName: firstName,
           middleName: middleName,
