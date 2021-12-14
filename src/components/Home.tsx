@@ -7,6 +7,7 @@ const Home = () => {
         <h2 className="text-center h2 " style={{ fontFamily: "cursive" }}>
           Learning Curve Public School
         </h2>
+        <h3>Home page</h3>
         <section className="school"></section>
       </div>
     </>
