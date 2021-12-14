@@ -62,7 +62,7 @@ const Admission = () => {
   return (
     <>
       <div>
-        <section className="school"></section>
+        <section className="schooladm"></section>
         <Breadcrumb>
           <Breadcrumb.Item className="item">
             <Link to="/" style={{ textDecoration: "none", color: "black" }}>
