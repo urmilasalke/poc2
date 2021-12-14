@@ -11,14 +11,11 @@ describe("header", () => {
 });
 
 test("Click event on about us ", async () => {
-  // const { getByTestId } = render(<Header />)
-
   const { getByTestId } = render(
     <Provider store={store}>
       <App />
     </Provider>
   );
-  //fireEvent.click(getByTestId("aboutus"));
   userEvent.click(await screen.findByTestId("footeraboutus"));
   expect(await screen.findByTestId("aboutschool")).toBeInTheDocument();
 });
