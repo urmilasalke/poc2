@@ -1,9 +1,9 @@
 .aboutschool {
-  background: url(../images/img1.jpeg);
+  background: url(../images/about.jpeg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 300px;
+  height: 600px;
 }
 
 .breadcrumb {
