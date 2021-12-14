@@ -15,6 +15,8 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Aboutus = lazy(() => import("./components/Aboutus"));
+// const Footer = lazy(() => import("./components/Footer"));
+// const TopHeader = lazy(() => import("./components/TopHeader"));
 function App() {
   return (
     <Router>

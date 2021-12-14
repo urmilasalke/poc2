@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../style/aboutus.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import { Link } from "react-router-dom";
+
 const Aboutus = () => {
   const [home, setHome] = useState(false);
   const [vision, setVision] = useState(false);
@@ -13,11 +15,13 @@ const Aboutus = () => {
   console.log(vision);
   return (
     <>
-      <div>
+      <div data-testid="aboutschool">
         <section className="aboutschool"></section>
         <Breadcrumb>
-          <Breadcrumb.Item href="/" className="item">
-            Home
+          <Breadcrumb.Item className="item">
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              Home
+            </Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item active className="item">
             About Us

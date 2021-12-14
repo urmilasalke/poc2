@@ -4,7 +4,9 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
+import { toast } from "react-toastify";
 import "../style/admissionform.css";
+// import validation from "./validation";
 const AdmissionForm = () => {
   const [firstName, setfirstName] = useState<string>();
   const [middleName, setmiddleName] = useState<string>();
@@ -18,13 +20,24 @@ const AdmissionForm = () => {
   const [district, setdistrict] = useState<string>();
   const [state, setstate] = useState<string>();
   const [zip, setzip] = useState<any | number>(0);
+  const [errors, setErrors] = React.useState<any | string>({});
   const onSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
     console.log(firstName);
     console.log(middleName);
+    //  setErrors(validation(email, firstName));
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      setErrors({ emails: "Email is Invalid" });
+      return;
+    }
+    if (result < 0) {
+      console.log(result);
+      setErrors({ results: "Please enter valid marks" });
+      return;
+    }
     axios
       .post(
-        `http://react-env.eba-gxkskpht.us-east-2.elasticbeanstalk.com/admform/`,
+        `http://schoolbackend-env.eba-w3nh6psn.us-east-2.elasticbeanstalk.com/admform/`,
         {
           firstName: firstName,
           middleName: middleName,
@@ -41,9 +54,11 @@ const AdmissionForm = () => {
         }
       )
       .then((data) => {
+        toast.success("Data saved!", { position: "top-center" });
         console.log(data);
       })
       .catch((err) => {
+        toast.error("Error!", { position: "top-center" });
         console.log(err);
       });
   };
@@ -126,13 +141,17 @@ const AdmissionForm = () => {
           <Col>
             <Form.Control
               name="result"
-              type="number"
               data-testid="result"
               placeholder="Result"
               onChange={(e) => {
                 setresult(e.target.value);
               }}
             />
+            {errors !== {} && (
+              <p id="error" className="error">
+                {errors.results}
+              </p>
+            )}
           </Col>
         </Row>
         <br></br>
@@ -158,6 +177,11 @@ const AdmissionForm = () => {
                 setemail(e.target.value);
               }}
             />
+            {errors !== {} && (
+              <p id="error" className="error">
+                {errors.emails}
+              </p>
+            )}
           </Col>
           <Col>
             <Form.Control
@@ -197,7 +221,6 @@ const AdmissionForm = () => {
           <Col>
             <Form.Control
               name="zip"
-              type="number"
               data-testid="zip"
               placeholder="Postal Code"
               onChange={(e) => {
@@ -211,6 +234,7 @@ const AdmissionForm = () => {
           Submit
         </Button>
       </Form>
+      <br></br>
     </div>
   );
 };

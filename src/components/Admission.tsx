@@ -64,8 +64,10 @@ const Admission = () => {
       <div>
         <section className="school"></section>
         <Breadcrumb>
-          <Breadcrumb.Item href="/" className="item">
-            Home
+          <Breadcrumb.Item className="item">
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              Home
+            </Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item active className="item">
             Admission
@@ -74,13 +76,13 @@ const Admission = () => {
       </div>
       <h5 className="h5">Grades Available!</h5>
       <ul>
-        <Link to="/preprimary" style={{ textDecoration: "none" }}>
+        <Link to="/preprimary" style={{ textDecoration: "none", color: "red" }}>
           <li>Pre-primary</li>
         </Link>
-        <Link to="/primary" style={{ textDecoration: "none" }}>
+        <Link to="/primary" style={{ textDecoration: "none", color: "red" }}>
           <li>Primary</li>
         </Link>
-        <Link to="/secondary" style={{ textDecoration: "none" }}>
+        <Link to="/secondary" style={{ textDecoration: "none", color: "red" }}>
           <li>Secondary</li>
         </Link>
       </ul>

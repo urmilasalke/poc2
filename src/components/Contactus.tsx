@@ -2,6 +2,12 @@ import React from "react";
 import axios from "axios";
 import "../style/contactus.css";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPhone,
+  faMailBulk,
+  faLocationArrow,
+} from "@fortawesome/free-solid-svg-icons";
 const Contactus = () => {
   const [firstName, setfirstName] = React.useState<string>("");
   const [lastName, setlastName] = React.useState<string>("");
@@ -41,7 +47,7 @@ const Contactus = () => {
     // }
     axios
       .post(
-        `http://react-env.eba-gxkskpht.us-east-2.elasticbeanstalk.com/contactus/`,
+        `http://schoolbackend-env.eba-w3nh6psn.us-east-2.elasticbeanstalk.com/contactus/`,
         {
           firstName: firstName,
           lastName: lastName,
@@ -55,14 +61,16 @@ const Contactus = () => {
       })
       .catch((err) => {
         console.log(err);
+        toast.error("Error", { position: "top-center" });
       });
   };
 
   return (
     <>
-      <div className="bg">
+      <div className="parallaxs">
         <div className="container py-5">
           <div className="row">
+            {/* <div className="col-lg-6"></div> */}
             <div className="col-lg-6 mx-auto">
               <div className="card">
                 <div className="card-body">
@@ -161,6 +169,39 @@ const Contactus = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="parallax">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-4 my-2  p-5">
+              <div className="rcorners text-center">
+                <FontAwesomeIcon icon={faLocationArrow} color="red" size="2x" />
+                <p className="p-2">
+                  Phase 1, Hinjawadi, Pimpari-Chinchawad,
+                  <br></br>Near Hotel Lemon Tree, Pune.
+                </p>
+              </div>
+            </div>
+            <div className="col-sm-4 my-2  p-5">
+              <div className="rcorners text-center ">
+                <FontAwesomeIcon icon={faPhone} color="red" size="2x" />
+                <p className="p-2">
+                  +91 9567238389
+                  <br></br> +91 9567238389
+                </p>
+              </div>
+            </div>
+            <div className="col-sm-4 my-2  p-5">
+              <div className="rcorners text-center">
+                <FontAwesomeIcon icon={faMailBulk} color="red" size="2x" />
+                <p className="p-2">
+                  lcps.preprimary@learningcurve.in
+                  <br></br> lcps.primarysec@learningcurve.in
+                </p>
               </div>
             </div>
           </div>

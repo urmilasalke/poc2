@@ -14,3 +14,7 @@ footer {
 .footerlink {
   padding-bottom: 30px;
 }
+
+h6:hover {
+  color: gray;
+}

@@ -15,7 +15,7 @@ const PrePrimary = () => {
   useEffect(() => {
     axios
       .get(
-        `http://react-env.eba-gxkskpht.us-east-2.elasticbeanstalk.com/getdata/pre-primary`
+        `http://schoolbackend-env.eba-w3nh6psn.us-east-2.elasticbeanstalk.com/getdata/pre-primary`
       )
       .then(({ data }) => {
         dispatch(setAdmissionGrades(data));
