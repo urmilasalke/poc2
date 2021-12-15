@@ -37,7 +37,7 @@ const AdmissionForm = () => {
     }
     axios
       .post(
-        `http://schoolbackend-env.eba-w3nh6psn.us-east-2.elasticbeanstalk.com/admform/`,
+        `http://reactserver-env.eba-kkbgitpt.us-east-1.elasticbeanstalk.com/admform/`,
         {
           firstName: firstName,
           middleName: middleName,

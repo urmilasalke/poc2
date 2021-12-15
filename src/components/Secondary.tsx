@@ -15,7 +15,7 @@ const Secondary = () => {
   useEffect(() => {
     axios
       .get(
-        `http://schoolbackend-env.eba-w3nh6psn.us-east-2.elasticbeanstalk.com/getdata/secondary`
+        `http://reactserver-env.eba-kkbgitpt.us-east-1.elasticbeanstalk.com/getdata/secondary`
       )
       .then(({ data }) => {
         dispatch(setAdmissionGrades(data));

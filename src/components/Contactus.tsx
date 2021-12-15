@@ -47,7 +47,7 @@ const Contactus = () => {
     // }
     axios
       .post(
-        `http://schoolbackend-env.eba-w3nh6psn.us-east-2.elasticbeanstalk.com/contactus/`,
+        `http://reactserver-env.eba-kkbgitpt.us-east-1.elasticbeanstalk.com/contactus/`,
         {
           firstName: firstName,
           lastName: lastName,
